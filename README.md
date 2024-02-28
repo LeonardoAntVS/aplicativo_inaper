@@ -1,6 +1,5 @@
 # aplicativo_inaper
-Trabalho interdisciplinar - Interface Humano Computador e Desenvolvimento para Dispositivos Móveis.
-
+Trabalho interdisciplinar 
 Integrantes:
 - Leonardo Antônio Vieira Silveira - E01857
 - Richard Sergio Valadares - E01916
