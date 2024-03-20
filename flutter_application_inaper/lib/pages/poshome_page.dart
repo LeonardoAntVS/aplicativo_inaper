@@ -1,9 +1,9 @@
+import '../pages/assistidos_page.dart';
+import '../pages/tarefas_page.dart';
 import 'package:flutter/material.dart';
-import '../pages/anuncios_page.dart';
-import '../pages/dados_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class PosHomePage extends StatelessWidget {
+  const PosHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,18 +11,17 @@ class HomePage extends StatelessWidget {
       length: 3,
       child: Scaffold(
           appBar: AppBar(
-            title: const Text('Inaper'),
             backgroundColor: Colors.green,
             centerTitle: false,
             bottom: const TabBar(tabs: [
-              Tab(icon: Icon(Icons.home)),
-              Tab(icon: Icon(Icons.work)),
+              Tab(icon: Icon(Icons.people)),
+              Tab(icon: Icon(Icons.work_history)),
             ]),
           ),
           body: TabBarView(
               children: [
-               const AnunciosPage(),
-              Builder(builder: (context) => DadosPage(),)
+              AssistidosPage(),
+              Builder(builder: (context) => TarefasPage(),)
               ],
           )),
     );

@@ -5,6 +5,7 @@ import '../pages/home_page.dart';
 import '../cadastro/routes.dart';
 import 'pages/tarefas_page.dart';
 import '../cadastro/pessoa.dart';
+import '../pages/poshome_page.dart';
 
 main() => runApp(const MyApp());
 
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
       Routes.PAGINA_DADOS: (context) => TarefasPage(),
       Routes.PAGINA_ASSISTIDO:(context) => AssistidosPage(),
+      Routes.PAGINA_POSHOME: (context) => PosHomePage(),
       }
     );
   }
