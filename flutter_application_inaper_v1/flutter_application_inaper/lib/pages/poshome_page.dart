@@ -1,5 +1,5 @@
-import '../pages/assistidos_page.dart';
-import '../pages/tarefas_page.dart';
+import '../Pages/assistidos_page.dart';
+import '../Pages/tarefas_page.dart';
 import 'package:flutter/material.dart';
 
 class PosHomePage extends StatelessWidget {

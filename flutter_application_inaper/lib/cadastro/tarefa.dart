@@ -1,3 +1,0 @@
-class Tarefa{
-    String? nome;
-}

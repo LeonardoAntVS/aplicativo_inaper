@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../pages/anuncios_page.dart';
-import '../pages/dados_page.dart';
+import '../Pages/anuncios_page.dart';
+import '../Pages/dados_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

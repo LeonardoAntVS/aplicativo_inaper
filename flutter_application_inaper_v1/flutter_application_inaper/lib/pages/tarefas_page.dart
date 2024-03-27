@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import '../Tarefas/tarefas_dao.dart';
-import '../cadastro/tarefa.dart';
 
 class TarefasPage extends StatefulWidget {
   // ignore: use_key_in_widget_constructors

@@ -1,11 +1,11 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/assistidos_page.dart';
-import '../pages/home_page.dart';
-import '../cadastro/routes.dart';
-import 'pages/tarefas_page.dart';
-import '../cadastro/pessoa.dart';
-import '../pages/poshome_page.dart';
+import '../Pages/home_page.dart';
+import '../Cadastro/routes.dart';
+import '../Pages/tarefas_page.dart';
+import '../Cadastro/pessoa.dart';
+import '../Pages/poshome_page.dart';
 
 main() => runApp(const MyApp());
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../cadastro/pessoa.dart';
-import '../cadastro/validation.dart';
-import '../cadastro/routes.dart';
+import '../Cadastro/pessoa.dart';
+import '../Cadastro/validation.dart';
+import '../Cadastro/routes.dart';
 
 class DadosPage extends StatefulWidget {
   const DadosPage({super.key});
