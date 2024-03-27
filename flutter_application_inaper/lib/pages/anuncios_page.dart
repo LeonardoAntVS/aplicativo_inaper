@@ -11,7 +11,7 @@ class AnunciosPage extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 1, 1, 1),
         centerTitle: true,
       ),
-      body: Column(
+      body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
          const SizedBox(height: 16),
