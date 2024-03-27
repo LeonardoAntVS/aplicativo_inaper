@@ -4,7 +4,7 @@ import '../cadastro/validation.dart';
 import '../cadastro/routes.dart';
 
 class DadosPage extends StatefulWidget {
-  DadosPage({super.key});
+  const DadosPage({super.key});
 
   @override
   State<DadosPage> createState() => _DadosPageState();
@@ -23,7 +23,7 @@ class _DadosPageState extends State<DadosPage> {
   Widget build(BuildContext context) {
     bool passwordObscured = true;
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 37, 37, 37),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
           title: const Text('Acesso colaborador'),
           backgroundColor: const Color.fromARGB(255, 1, 1, 1),
@@ -39,40 +39,13 @@ class _DadosPageState extends State<DadosPage> {
                   const SizedBox(height: 10),
                   TextFormField(
                     decoration: const InputDecoration(
-                      labelText: 'Nome',
-                      hintText: 'Entre com seu nome',
-                      border: OutlineInputBorder(borderSide: BorderSide()),
-                    ),
-                    onSaved: (String? value) {
-                      usuario.nome = value;
-                    },
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.text,
-                    autofocus: true,
-                    validator: (nome) => validar.campoNome(nome.toString()),
-                  ),
-                  const SizedBox(height: 10),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Sobrenome',
-                      hintText: 'Entre com seu sobrenome',
-                      border: OutlineInputBorder(borderSide: BorderSide()),
-                    ),
-                    onSaved: (String? value) {
-                      usuario.sobrenome = value;
-                    },
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.text,
-                    validator: (sobrenome) =>
-                        validar.campoSobreNome(sobrenome.toString()),
-                  ),
-                  const SizedBox(height: 10),
-                  TextFormField(
-                    decoration: const InputDecoration(
+                      labelStyle: TextStyle(color: Colors.black),
+                      hintStyle: TextStyle(color: Colors.black54),
                       labelText: 'E-mail',
                       hintText: 'Entre com seu e-mail',
-                      border: OutlineInputBorder(borderSide: BorderSide()),
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
                     ),
+                    style: const TextStyle(color: Colors.black), // Texto preto
                     onSaved: (String? value) {
                       usuario.email = value;
                     },
@@ -83,11 +56,14 @@ class _DadosPageState extends State<DadosPage> {
                   const SizedBox(height: 10),
                   TextFormField(
                     decoration: const InputDecoration(
+                      labelStyle: TextStyle(color: Colors.black),
+                      hintStyle: TextStyle(color: Colors.black54),
                       labelText: 'Senha',
                       hintText: 'Entre com sua senha',
-                      border: OutlineInputBorder(borderSide: BorderSide()),
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.green)),
                     ),
                     controller: _senhaController,
+                    style: const TextStyle(color: Colors.black), // Texto preto
                     onSaved: (String? value) {
                       usuario.senha = value;
                     },
@@ -101,30 +77,10 @@ class _DadosPageState extends State<DadosPage> {
                     },
                   ),
                   const SizedBox(height: 10),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Confirmar Senha',
-                      hintText: 'Confirme sua senha',
-                      border: OutlineInputBorder(borderSide: BorderSide()),
-                    ),
-                    onSaved: (String? value) {
-                      usuario.confSena = value;
-                    },
-                    textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.number,
-                    obscureText: true,
-                    validator: (confSenha) => validar.confirmaSenha(
-                        confSenha.toString(), _senhaController.text),
-                    onFieldSubmitted: (value) {
-                      _onSubmit(context);
-                    },
-                  ),
-                  const SizedBox(height: 10),
                   SizedBox(
                     width: double.infinity,
                     height: 60,
                     child: ElevatedButton(
-                      child: Text('Acessar'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           textStyle: const TextStyle(
@@ -132,6 +88,7 @@ class _DadosPageState extends State<DadosPage> {
                       onPressed: () {
                         _onSubmit(context);
                       },
+                      child: const Text('Cadastrar'),
                     ),
                   ),
                 ],
@@ -145,7 +102,7 @@ class _DadosPageState extends State<DadosPage> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       Navigator.of(inContext).pushNamed(
-        Routes.PAGINA_ASSISTIDO,
+        Routes.PAGINA_POSHOME,
         arguments: usuario,
       );
     } else {
@@ -156,19 +113,19 @@ class _DadosPageState extends State<DadosPage> {
           return WillPopScope(
             onWillPop: () async => false,
             child: AlertDialog(
-              title: Text('Dados Inválidos!'),
+              title: const Text('Dados Inválidos!'),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(inContext);
                   },
-                  child: Text('Cancelar'),
+                  child: const Text('Cancelar'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.pop(inContext);
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             ),

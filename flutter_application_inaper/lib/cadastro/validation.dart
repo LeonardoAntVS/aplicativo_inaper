@@ -1,30 +1,29 @@
 class Validation {
   String? campoNome(String nome) {
     if (nome.isEmpty) {
-      return 'Entre com seu nome';
+      return 'Entre o nome';
     }
     return null;
   }
 
   String? campoSobreNome(String sobrenome) {
     if (sobrenome.isEmpty) {
-      return 'Entre com seu sobrenome';
+      return 'Entre o sobrenome';
     }
     return null;
   }
 
   String? campoEmail(String email) {
-    if (email.isEmpty) {
-      return 'Entre com seu e-mail';
-    }
-    if (!email.contains('@')) {
-      return 'O email deve ser por exemplo seu-nome@mail.com';
-    }
-    if (email.length < 3) {
-      return 'E-mail em formato inadequado';
-    }
-    return null;
+  if (email.isEmpty) {
+    return 'Entre com seu e-mail';
   }
+  // Expressão regular para validar o formato do e-mail
+  final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+  if (!emailRegex.hasMatch(email)) {
+    return 'O e-mail deve estar em um formato válido';
+  }
+  return null;
+}
 
   String? campoSenha(String senha) {
     if (senha.isEmpty) {

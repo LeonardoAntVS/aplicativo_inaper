@@ -77,16 +77,14 @@ class _AssistidosPageState extends State<AssistidosPage> {
   }
 
   void _onSubmit(inContext) {
-    if (_formKey.currentState!.validate()) {
-      print('Formulário Validado!');
+    if (_formKey.currentState!.validate()) { // Formulário validado
       _formKey.currentState!.save();
       Navigator.of(inContext).pushNamed(
         Routes.PAGINA_DADOS,
         arguments: usuario,
       );
     } else {
-      print('********* Formulário com erros. ********');
-      showDialog(
+      showDialog( // Formulário com erro
         context: inContext,
         barrierDismissible: false,
         builder: (inContext) {
