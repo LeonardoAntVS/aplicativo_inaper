@@ -8,7 +8,7 @@ class Validation {
 
   String? campoSobreNome(String sobrenome) {
     if (sobrenome.isEmpty) {
-      return 'Entre com seu nome';
+      return 'Entre com seu sobrenome';
     }
     return null;
   }

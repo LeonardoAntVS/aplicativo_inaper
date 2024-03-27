@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import '../Tarefas/tarefas_dao.dart';
+import '../tarefas/tarefas_dao.dart';
 import '../cadastro/pessoa.dart';
+import '../tarefas/datetime.dart';
 
 class TarefasPage extends StatefulWidget {
   TarefasPage({super.key});
@@ -13,8 +14,8 @@ class TarefasPage extends StatefulWidget {
 class _TarefasPageState extends State<TarefasPage> {
   Map<String, dynamic>? _ultimoItemRemovido;
   int? _posicaoUltimoItemRemovido;
+  Time t = Time();
   final _tarefaController = TextEditingController();
-  final _dateTime = DateTime.now().toString();
   final fieldNome = TextEditingController();
 
   List _listaTarefas = [];
@@ -34,11 +35,13 @@ class _TarefasPageState extends State<TarefasPage> {
   }
 
   void _onSubmit(context, texto) {
+    final pessoa = ModalRoute.of(context)!.settings.arguments as Pessoa;
     if (texto.toString().isNotEmpty) {
       setState(() {
         Map<String, dynamic> novaTarefa = {};
         novaTarefa['descricao'] = _tarefaController.text;
-        novaTarefa['DataHora'] = _dateTime;
+        novaTarefa['DataHora'] = t.getdatetime();
+        novaTarefa['Pessoa'] = pessoa.assistido;
         _tarefaController.clear();
         novaTarefa['ok'] = false;
 
@@ -63,14 +66,12 @@ class _TarefasPageState extends State<TarefasPage> {
 
   @override
   Widget build(BuildContext context) {
-    final pessoa = ModalRoute.of(context)!.settings.arguments as Pessoa;
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 37, 37, 37),
         appBar: AppBar(
             title: const Text('Tarefas a serem realizadas'), centerTitle: true),
         body: Column(
           children: [
-            Text('${pessoa.assistido}',style: const TextStyle(fontSize: 30),),
             Expanded(
               child: RefreshIndicator(
                 onRefresh: _atualiza,
@@ -102,7 +103,7 @@ class _TarefasPageState extends State<TarefasPage> {
                         ),
                         child: CheckboxListTile(
                           title: Text(
-                              '${_listaTarefas[index]['descricao']} - ${_listaTarefas[index]['DataHora']}'),
+                              '${_listaTarefas[index]['descricao']} - ${_listaTarefas[index]['DataHora']} - ${_listaTarefas[index]['Pessoa']}'),
                           value: _listaTarefas[index]['ok'],
                           secondary: CircleAvatar(
                             foregroundColor: _listaTarefas[index]['ok']

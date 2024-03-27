@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../cadastro/pessoa.dart';
 import '../cadastro/validation.dart';
 import '../cadastro/routes.dart';
+import '../tarefas/datetime.dart';
+
+Time t = Time();
 
 class AssistidosPage extends StatefulWidget {
   AssistidosPage({super.key});
@@ -17,12 +20,6 @@ class _AssistidosPageState extends State<AssistidosPage> {
   final Validation validar = Validation();
 
   final Pessoa usuario = Pessoa();
-
-  final day = DateTime.now().day;
-  final month = DateTime.now().month;
-  final year = DateTime.now().year;
-  final hora = DateTime.now().hour;
-  final minuto = DateTime.now().minute;
 
   @override
   Widget build(BuildContext context) {
@@ -56,13 +53,13 @@ class _AssistidosPageState extends State<AssistidosPage> {
                     validator: (nome) => validar.campoNome(nome.toString()),
                   ),
                   const SizedBox(height: 10),
-                  Text('Dia: $day/$month/$year Hora: $hora:$minuto'),
+                  Text('Dia: ${t.day}/${t.month}/${t.year} Hora: ${t.hora}:${t.getminuto()}'),
                   const SizedBox(height: 10),
                   SizedBox(
                     width: double.infinity,
                     height: 60,
                     child: ElevatedButton(
-                      child: Text('Cadastrar'),
+                      child: Text('Acessar'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           textStyle: const TextStyle(

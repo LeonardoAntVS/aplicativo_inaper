@@ -124,7 +124,7 @@ class _DadosPageState extends State<DadosPage> {
                     width: double.infinity,
                     height: 60,
                     child: ElevatedButton(
-                      child: Text('Cadastrar'),
+                      child: Text('Acessar'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           textStyle: const TextStyle(
