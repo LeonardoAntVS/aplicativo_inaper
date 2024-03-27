@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           body: TabBarView(
               children: [
                const AnunciosPage(),
-              Builder(builder: (context) => DadosPage(),)
+              Builder(builder: (context) => const DadosPage(),)
               ],
           )),
     );

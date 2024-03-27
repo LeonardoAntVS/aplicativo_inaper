@@ -20,7 +20,7 @@ class PosHomePage extends StatelessWidget {
           ),
           body: TabBarView(
               children: [
-              const AssistidosPage(),
+              AssistidosPage(),
               Builder(builder: (context) => const TarefasPage(),)
               ],
           )),

@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import '../cadastro/pessoa.dart';
 import '../cadastro/validation.dart';
 import '../cadastro/routes.dart';
+import '../Tarefas/datetime.dart';
+
+Time t = Time();
 
 class AssistidosPage extends StatefulWidget {
-  const AssistidosPage({super.key});
+  AssistidosPage({super.key});
 
   @override
   State<AssistidosPage> createState() => _AssistidosPageState();
@@ -18,16 +21,10 @@ class _AssistidosPageState extends State<AssistidosPage> {
 
   final Pessoa usuario = Pessoa();
 
-  final day = DateTime.now().day;
-  final month = DateTime.now().month;
-  final year = DateTime.now().year;
-  final hora = DateTime.now().hour;
-  final minuto = DateTime.now().minute;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: Color.fromARGB(255, 37, 37, 37),
         appBar: AppBar(
           title: const Text('Acompanhamento ao Assistido'),
           backgroundColor: const Color.fromARGB(255, 1, 1, 1),
@@ -40,16 +37,13 @@ class _AssistidosPageState extends State<AssistidosPage> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  const SizedBox( height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: const InputDecoration(
-                      labelStyle: TextStyle(color: Colors.black),
-                      hintStyle: TextStyle(color: Colors.black54),
                       labelText: 'Nome',
                       hintText: 'Entre com o nome',
                       border: OutlineInputBorder(borderSide: BorderSide()),
                     ),
-                    style: const TextStyle(color: Colors.black),
                     onSaved: (String? value) {
                       usuario.assistido = value;
                     },
@@ -59,21 +53,20 @@ class _AssistidosPageState extends State<AssistidosPage> {
                     validator: (nome) => validar.campoNome(nome.toString()),
                   ),
                   const SizedBox(height: 10),
-                  Text('Dia: $day/$month/$year Hora: $hora:$minuto'),
+                  Text('Dia: ${t.day}/${t.month}/${t.year} Hora: ${t.hora}:${t.getminuto()}'),
                   const SizedBox(height: 10),
                   SizedBox(
                     width: double.infinity,
                     height: 60,
                     child: ElevatedButton(
+                      child: Text('Acessar'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           textStyle: const TextStyle(
-                              color: Colors.orange,
                               fontSize: 20, fontWeight: FontWeight.bold)),
                       onPressed: () {
                         _onSubmit(context);
                       },
-                      child: const Text('Cadastrar'),
                     ),
                   ),
                 ],
@@ -98,19 +91,19 @@ class _AssistidosPageState extends State<AssistidosPage> {
           return WillPopScope(
             onWillPop: () async => false,
             child: AlertDialog(
-              title: const Text('Dados Inválidos!'),
+              title: Text('Dados Inválidos!'),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(inContext);
                   },
-                  child: const Text('Cancelar'),
+                  child: Text('Cancelar'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.pop(inContext);
                   },
-                  child: const Text('OK'),
+                  child: Text('OK'),
                 ),
               ],
             ),

@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       home: const HomePage(),
       routes: {
       Routes.PAGINA_DADOS: (context) => const TarefasPage(),
-      Routes.PAGINA_ASSISTIDO:(context) => const AssistidosPage(),
+      Routes.PAGINA_ASSISTIDO:(context) => AssistidosPage(),
       Routes.PAGINA_POSHOME: (context) => const PosHomePage(),
       }
     );

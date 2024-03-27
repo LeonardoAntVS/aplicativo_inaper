@@ -76,7 +76,7 @@ class _TarefasPageState extends State<TarefasPage> {
 
   @override
   Widget build(BuildContext context) {
-    final tarefa = ModalRoute.of(context)?.settings.arguments as Tarefa?;
+//    final tarefa = ModalRoute.of(context)?.settings.arguments as Tarefa?;
 //   if (tarefa == null) {
 //      return const Scaffold(
 //        backgroundColor: Colors.green, // Define o fundo como branco

@@ -5,14 +5,13 @@ class AnunciosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Color.fromARGB(255, 37, 37, 37),
       appBar: AppBar(
         title: const Text('Vidas em transformação'),
         backgroundColor: const Color.fromARGB(255, 1, 1, 1),
         centerTitle: true,
       ),
-      body: Column(
-        
+      body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
          const SizedBox(height: 16),
@@ -26,16 +25,12 @@ class AnunciosPage extends StatelessWidget {
             ),
           ),
         ),
-        const Padding(
-          padding:  EdgeInsets.all(20.0), // Adiciona espaçamento ao redor do texto
-          child:  Text('O Instituto de Apoio e Orientação a Pessoas em Situação de Rua – INAPER, surgiu, em 2016, com o objetivo de levar acolhimento à população carente e tende cerca de 65 pessoas por dia de funcionamento, com o envolvimento de voluntários e colaboradores comprometidos com a causa.',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),),
-        ),
+        const Text('O Instituto de Apoio e Orientação a Pessoas em Situação de Rua – INAPER, surgiu, em 2016, com o objetivo de levar acolhimento à população carente e tende cerca de 65 pessoas por dia de funcionamento, com o envolvimento de voluntários e colaboradores comprometidos com a causa.',
+        textAlign: TextAlign.justify,
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),),
         Image.asset(
           '../imagens/micao_inaper.png'
         )
