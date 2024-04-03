@@ -88,7 +88,7 @@ class _DadosPageState extends State<DadosPage> {
                       onPressed: () {
                         _onSubmit(context);
                       },
-                      child: const Text('Cadastrar'),
+                      child: const Text('Acessar'),
                     ),
                   ),
                 ],

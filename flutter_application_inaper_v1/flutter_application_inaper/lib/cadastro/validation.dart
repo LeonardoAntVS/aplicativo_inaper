@@ -29,8 +29,8 @@ class Validation {
     if (senha.isEmpty) {
       return 'Entre com sua senha';
     }
-    if (senha.length < 4) {
-      return 'A senha deve ter no mínimo 4 dígitos';
+    if (senha.length < 8 && !senha.contains(RegExp(r'[A-Z]')) && !senha.contains(RegExp(r'[a-z]')) && !senha.contains(RegExp(r'\W'))) {
+      return 'A senha deve ter no mínimo 8 dígitos, uma letra maiuscula, uma minuscula e um caracter especial';
     }
     return null;
   }

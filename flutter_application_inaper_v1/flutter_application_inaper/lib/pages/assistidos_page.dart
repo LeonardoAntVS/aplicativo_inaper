@@ -59,7 +59,7 @@ class _AssistidosPageState extends State<AssistidosPage> {
                     width: double.infinity,
                     height: 60,
                     child: ElevatedButton(
-                      child: Text('Acessar'),
+                      child: Text('Cadastrar'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           textStyle: const TextStyle(
